@@ -10,22 +10,23 @@ namespace ProblematicProblem
        
         static bool cont = true;
         static List<string> activities = new List<string>() { "Movies", "Paintball", "Bowling", "Lazer Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
+
         static void Main(string[] args)
         {
             Random rng = new Random();
 
-            Console.Write("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
+            Console.Write("Hello, welcome to the random activity generator! Would you like to generate a random activity? yes/no: ");
             bool cont;
             var contInput = Console.ReadLine().ToLower();
-            if(contInput == "yes")
+
+            if (contInput == "yes")
             {
-                cont =true;
+                cont = true;
             }
             else
             {
                 cont = false;
             }
-            
             Console.WriteLine();
 
             Console.Write("We are going to need your information first! What is your name? ");
@@ -39,7 +40,7 @@ namespace ProblematicProblem
             Console.WriteLine();
 
             Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
-            bool seeList = (Console.ReadLine().ToLower() == "sure")? true : false;
+            bool seeList = (Console.ReadLine().ToLower() == "sure") ? true : false;
 
             if (seeList)
             {
@@ -54,13 +55,13 @@ namespace ProblematicProblem
                 Console.Write("Would you like to add any activities before we generate one? yes/no: ");
                 bool addToList;
                 var addsToList = Console.ReadLine().ToLower();
-                if (addsToList == "no")
+                if (addsToList == "yes")
                 {
-                    addToList = false;
+                    addToList = true;
                 }
                 else
                 {
-                    addToList = true;
+                    addToList = false;
                 }
 
                 Console.WriteLine();
@@ -69,18 +70,19 @@ namespace ProblematicProblem
                 {
                     Console.Write("What would you like to add? ");
                     string userAddition = Console.ReadLine();
-                    activities.Add(userAddition);
-                    {
-                        foreach (string activity in activities)
-                        {
-                            Console.Write($"{activity} ");
-                            Thread.Sleep(250);
-                        }
 
-                        Console.WriteLine();
-                        Console.WriteLine("Would you like to add more? yes/no: ");
-                        var AddToList = (Console.ReadLine().ToLower() == "yes") ? true : false;
+                    activities.Add(userAddition);
+
+                    foreach (string activity in activities)
+                    {
+                        Console.Write($"{activity} ");
+                        Thread.Sleep(250);
                     }
+
+                    Console.WriteLine();
+                    Console.WriteLine("Would you like to add more? yes/no: ");
+                    addToList = (Console.ReadLine().ToLower() == "yes") ? true : false;
+
                 }
             }
                 while (cont)
@@ -120,7 +122,7 @@ namespace ProblematicProblem
                     }
                     Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                     Console.WriteLine();
-                    cont = (Console.ReadLine().ToLower() == "redo")? true: false;
+                    cont = (Console.ReadLine().ToLower() == "redo") ? true : false;
                 }
             
         }
