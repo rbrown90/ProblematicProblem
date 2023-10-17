@@ -7,28 +7,29 @@ namespace ProblematicProblem
 {
     class Program
     {
-       
-        static bool cont = true;
+        static bool cont = true;   
         static List<string> activities = new List<string>() { "Movies", "Paintball", "Bowling", "Lazer Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
-
         static void Main(string[] args)
         {
+           
             Random rng = new Random();
 
             Console.Write("Hello, welcome to the random activity generator! Would you like to generate a random activity? yes/no: ");
             bool cont;
             var contInput = Console.ReadLine().ToLower();
-
-            if (contInput == "yes")
-            {
-                cont = true;
-            }
-            else
-            {
-                cont = false;
-            }
+            
+                if (contInput == "yes")
+                {
+                    cont = true;
+                }
+                else 
+                {
+                    cont = false;
+                    Environment.Exit(0);
+                }
+            
             Console.WriteLine();
-
+          
             Console.Write("We are going to need your information first! What is your name? ");
             string userName = Console.ReadLine();
 
